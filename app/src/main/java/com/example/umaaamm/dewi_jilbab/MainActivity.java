@@ -102,14 +102,20 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.beranda) {
             // Handle the camera action
         } else if (id == R.id.perkategori) {
-            Intent ke_upload_produk = new Intent(MainActivity.this, ProdukPerKategori.class);
-            startActivity(ke_upload_produk);
+            Intent ke_kategori = new Intent(MainActivity.this, ProdukPerKategori.class);
+            startActivity(ke_kategori);
         } else if (id == R.id.cart) {
 
         } else if (id == R.id.profile) {
 
         } else if (id == R.id.keluar) {
 
+        } else if (id == R.id.detail) {
+            Intent ke_produk = new Intent(MainActivity.this, ProdukDetail.class);
+            startActivity(ke_produk);
+        } else if (id == R.id.uploadproduk) {
+            Intent ke_upload_produk = new Intent(MainActivity.this, UploadProdukClass.class);
+            startActivity(ke_upload_produk);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
