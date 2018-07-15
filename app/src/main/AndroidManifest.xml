@@ -61,6 +61,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />>
         </activity>
+        <activity
+            android:name=".Register"
+            android:label="Daftar Akun"
+            android:theme="@style/MasukDaftar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />>
+        </activity>
+        <activity
+            android:name=".Login"
+            android:label="Login Aplikasi"
+            android:theme="@style/MasukDaftar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />>
+        </activity>
     </application>
 
 </manifest>

@@ -259,6 +259,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.tentang) {
             Intent ke_tentang = new Intent(MainActivity.this, Tentang.class);
             startActivity(ke_tentang);
+        }else if (id == R.id.login) {
+            Intent kelogin = new Intent(MainActivity.this, Login.class);
+            startActivity(kelogin);
+        }else if (id == R.id.register) {
+            Intent keregister = new Intent(MainActivity.this, Register.class);
+            startActivity(keregister);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
