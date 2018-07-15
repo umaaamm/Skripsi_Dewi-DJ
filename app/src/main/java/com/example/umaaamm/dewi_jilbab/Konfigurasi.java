@@ -7,8 +7,8 @@ package com.example.umaaamm.dewi_jilbab;
 
 public class Konfigurasi {
 
-    public static final String URL_ADD="http://umam-developer.com/API/hijab/tambahKategori.php";
-    public static final String URL_ADD_PRODUK="http://umam-developer.com/API/hijab/tambahHijab.php";
+    public static final String URL_ADD = "http://umam-developer.com/API/hijab/tambahKategori.php";
+    public static final String URL_ADD_PRODUK = "http://umam-developer.com/API/hijab/tambahHijab.php";
     public static final String URL_GET_ALL = "http://umam-developer.com/API/hijab/tampilSemuaKategori.php";
     public static final String URL_GET_EMP = "http://umam-developer.com/API/hijab/tampilKategori.php?kategori_id=";
     public static final String URL_UPDATE_EMP = "http://umam-developer.com/API/hijab/updateKategori.php";
@@ -23,7 +23,7 @@ public class Konfigurasi {
 
 
     //JSON Tags
-    public static final String TAG_JSON_ARRAY="result";
+    public static final String TAG_JSON_ARRAY = "result";
     public static final String TAG_ID = "id_kategori";
     public static final String TAG_NAMA = "nama_kategori";
 

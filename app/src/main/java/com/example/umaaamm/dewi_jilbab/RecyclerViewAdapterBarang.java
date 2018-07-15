@@ -20,14 +20,14 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerViewAdapterBarang.ViewHolder>{
+public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerViewAdapterBarang.ViewHolder> {
     private ArrayList<String> id_barang;
     private ArrayList<String> stok_barang;
     private ArrayList<String> nama_barang;
     private ArrayList<String> gambar_barang;
     private ArrayList<String> harga_barang;
 
-    public RecyclerViewAdapterBarang(ArrayList<String> idbrg,ArrayList<String> stok, ArrayList<String> nama,ArrayList<String> gambar,ArrayList<String> harga) {
+    public RecyclerViewAdapterBarang(ArrayList<String> idbrg, ArrayList<String> stok, ArrayList<String> nama, ArrayList<String> gambar, ArrayList<String> harga) {
         id_barang = idbrg;
         stok_barang = stok;
         nama_barang = nama;
@@ -40,7 +40,7 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         // di tutorial ini kita hanya menggunakan data String untuk tiap item
-        public TextView title,deskripsi_barang,harga,stok;
+        public TextView title, deskripsi_barang, harga, stok;
         public TextView tvSubtitle;
         public CardView cvMain;
         public ImageView img;
@@ -72,18 +72,18 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
         final String name = nama_barang.get(position);
         final String id = id_barang.get(position);
         holder.title.setText(nama_barang.get(position));
-        holder.tvSubtitle.setText(stok_barang.get(position)+" Barang");
+        holder.tvSubtitle.setText(stok_barang.get(position) + " Barang");
         holder.img.setImageBitmap(StringToBitMap(gambar_barang.get(position)));
-        holder.harga.setText("Rp. "+getMoney(harga_barang.get(position)));
+        holder.harga.setText("Rp. " + getMoney(harga_barang.get(position)));
         // Set onclicklistener pada view cvMain (CardView)
         holder.cvMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Clicked element "+name, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, "Clicked element " + name, Snackbar.LENGTH_LONG).show();
                 Intent intent = new Intent(view.getContext(), ProdukDetail.class);
-                intent.putExtra("id_barang",id);
+                intent.putExtra("id_barang", id);
                 view.getContext().startActivity(intent);
-                ((Activity)view.getContext()).finish();
+                ((Activity) view.getContext()).finish();
 
             }
         });
@@ -95,22 +95,22 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
         return nama_barang.size();
     }
 
-    private String getMoney(String str2){
+    private String getMoney(String str2) {
         StringBuilder str = new StringBuilder(str2);
-        int idx = str.length()-3;
-        while(idx >0){
-            str.insert(idx,".");
-            idx = idx-3;
+        int idx = str.length() - 3;
+        while (idx > 0) {
+            str.insert(idx, ".");
+            idx = idx - 3;
         }
         return str.toString();
     }
 
-    public Bitmap StringToBitMap(String encodedString){
-        try{
-            byte [] encodeByte= Base64.decode(encodedString,Base64.DEFAULT);
-            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+    public Bitmap StringToBitMap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
             return bitmap;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
             return null;
         }

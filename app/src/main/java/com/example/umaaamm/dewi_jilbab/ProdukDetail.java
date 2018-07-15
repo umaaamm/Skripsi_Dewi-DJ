@@ -37,13 +37,13 @@ import java.util.HashMap;
 
 public class ProdukDetail extends AppCompatActivity {
 
-    String id_barang_ambil,id_kategori_now,nama_now,deskripsi_now,stok_now,harga_now,gambar_now,gambarbmp_now;
+    String id_barang_ambil, id_kategori_now, nama_now, deskripsi_now, stok_now, harga_now, gambar_now, gambarbmp_now;
 
     Spinner dynamicSpinner;
     ImageView gambar;
     private static final int PICK_IMAGE_REQUEST = 234;
 
-    TextView txtnama,txtdeskrip,txtharga,txt_stok;
+    TextView txtnama, txtdeskrip, txtharga, txt_stok;
     Spinner txtKategori;
 
     String SIDKategori;
@@ -77,35 +77,34 @@ public class ProdukDetail extends AppCompatActivity {
     }
 
 
-
-    public Bitmap StringToBitMap(String encodedString){
-        try{
-            byte [] encodeByte= Base64.decode(encodedString,Base64.DEFAULT);
-            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+    public Bitmap StringToBitMap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
             return bitmap;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
             return null;
         }
     }
 
-    public String getStringImage(Bitmap bitmap){
-        ByteArrayOutputStream baos =  new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+    public String getStringImage(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] imagebyte = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(imagebyte,Base64.DEFAULT);
-        return  encodedImage;
+        String encodedImage = Base64.encodeToString(imagebyte, Base64.DEFAULT);
+        return encodedImage;
     }
 
 
-
-    private void getEmployee(){
-        class GetEmployee extends AsyncTask<Void,Void,String> {
+    private void getEmployee() {
+        class GetEmployee extends AsyncTask<Void, Void, String> {
             ProgressDialog loading;
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(ProdukDetail.this,"Fetching...","Wait...",false,false);
+                loading = ProgressDialog.show(ProdukDetail.this, "Fetching...", "Wait...", false, false);
             }
 
             @Override
@@ -119,7 +118,7 @@ public class ProdukDetail extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(KonfigurasiBarang.URL_GET_EMP,id_barang_ambil);
+                String s = rh.sendGetRequestParam(KonfigurasiBarang.URL_GET_EMP, id_barang_ambil);
                 return s;
             }
         }
@@ -127,7 +126,7 @@ public class ProdukDetail extends AppCompatActivity {
         ge.execute();
     }
 
-    private void showEmployee(String json){
+    private void showEmployee(String json) {
         try {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray result = jsonObject.getJSONArray(KonfigurasiBarang.TAG_JSON_ARRAY);
@@ -137,18 +136,18 @@ public class ProdukDetail extends AppCompatActivity {
             nama_now = c.getString(KonfigurasiBarang.TAG_NAMA);
             deskripsi_now = c.getString(KonfigurasiBarang.TAG_DESKRIPSI);
             harga_now = c.getString(KonfigurasiBarang.TAG_HARGA);
-            stok_now =  c.getString(KonfigurasiBarang.TAG_STOK);
-            gambar_now =  c.getString(KonfigurasiBarang.TAG_GAMBAR);
-            gambarbmp_now =  c.getString(KonfigurasiBarang.TAG_GAMBAR_BMP);
+            stok_now = c.getString(KonfigurasiBarang.TAG_STOK);
+            gambar_now = c.getString(KonfigurasiBarang.TAG_GAMBAR);
+            gambarbmp_now = c.getString(KonfigurasiBarang.TAG_GAMBAR_BMP);
 
 
             txtnama.setText(nama_now);
             txtdeskrip.setText(deskripsi_now);
-            txtharga.setText("Rp. "+getMoney(harga_now));
-            txt_stok.setText(stok_now+" Barang");
+            txtharga.setText("Rp. " + getMoney(harga_now));
+            txt_stok.setText(stok_now + " Barang");
 
-            for(int a = 0; a < idKat.size(); a++){
-                if(idKat.get(a).equals(id_kategori_now)){
+            for (int a = 0; a < idKat.size(); a++) {
+                if (idKat.get(a).equals(id_kategori_now)) {
                     txtKategori.setSelection(a);
                 }
             }
@@ -160,21 +159,21 @@ public class ProdukDetail extends AppCompatActivity {
         }
     }
 
-    private String getMoney(String str2){
+    private String getMoney(String str2) {
         StringBuilder str = new StringBuilder(str2);
-        int idx = str.length()-3;
-        while(idx >0){
-            str.insert(idx,".");
-            idx = idx-3;
+        int idx = str.length() - 3;
+        while (idx > 0) {
+            str.insert(idx, ".");
+            idx = idx - 3;
         }
         return str.toString();
     }
 
-    private void kategori(){
-        if(!idKat.isEmpty()){
+    private void kategori() {
+        if (!idKat.isEmpty()) {
             idKat.clear();
         }
-        if(!namaKat.isEmpty()){
+        if (!namaKat.isEmpty()) {
             namaKat.clear();
         }
         JSONObject jsonObject = null;
@@ -183,7 +182,7 @@ public class ProdukDetail extends AppCompatActivity {
             jsonObject = new JSONObject(JSON_STRING);
             JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
 
-            for(int i = 0; i<result.length(); i++){
+            for (int i = 0; i < result.length(); i++) {
                 JSONObject jo = result.getJSONObject(i);
                 String id = jo.getString(Konfigurasi.TAG_ID);
                 String nama_kategor = jo.getString(Konfigurasi.TAG_NAMA);
@@ -199,7 +198,6 @@ public class ProdukDetail extends AppCompatActivity {
             txtKategori.setAdapter(adapter);
 
 
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -212,14 +210,15 @@ public class ProdukDetail extends AppCompatActivity {
 //        listView.setAdapter(adapter);
     }
 
-    private void getKategori(){
-        class GetJSON extends AsyncTask<Void,Void,String> {
+    private void getKategori() {
+        class GetJSON extends AsyncTask<Void, Void, String> {
 
             ProgressDialog loading;
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(ProdukDetail.this,"Mengambil Data","Mohon Tunggu...",false,false);
+                loading = ProgressDialog.show(ProdukDetail.this, "Mengambil Data", "Mohon Tunggu...", false, false);
             }
 
             @Override

@@ -105,23 +105,22 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-
     }
 
-    private void showEmployee(){
+    private void showEmployee() {
 
-        if(!stokbarang.isEmpty()){
+        if (!stokbarang.isEmpty()) {
             stokbarang.clear();
         }
 
-        if(!namabarang.isEmpty()){
+        if (!namabarang.isEmpty()) {
             namabarang.clear();
         }
 
-        if(!gambarbarang.isEmpty()){
+        if (!gambarbarang.isEmpty()) {
             gambarbarang.clear();
         }
-        if(!hargabarang.isEmpty()){
+        if (!hargabarang.isEmpty()) {
             hargabarang.clear();
         }
 
@@ -131,7 +130,7 @@ public class MainActivity extends AppCompatActivity
             jsonObject = new JSONObject(JSON_STRING);
             JSONArray result = jsonObject.getJSONArray(KonfigurasiBarang.TAG_JSON_ARRAY);
 
-            for(int i = 0; i<result.length(); i++){
+            for (int i = 0; i < result.length(); i++) {
                 JSONObject jo = result.getJSONObject(i);
                 String id = jo.getString(KonfigurasiBarang.TAG_ID_BARANG);
                 String stok = jo.getString(KonfigurasiBarang.TAG_STOK);
@@ -153,7 +152,7 @@ public class MainActivity extends AppCompatActivity
             }
 
             //Toast.makeText(Barang.this,"Get Json : "+namabarang.size(),Toast.LENGTH_SHORT).show();
-            adapter = new RecyclerViewAdapterBarang(idbarang,stokbarang,namabarang,gambarbarang,hargabarang);
+            adapter = new RecyclerViewAdapterBarang(idbarang, stokbarang, namabarang, gambarbarang, hargabarang);
             rvView.setAdapter(adapter);
 
         } catch (JSONException e) {
@@ -169,16 +168,16 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    private void getJSON() {
 
-    private void getJSON(){
-
-        class GetJSON extends AsyncTask<Void,Void,String> {
+        class GetJSON extends AsyncTask<Void, Void, String> {
 
             ProgressDialog loading;
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(MainActivity.this,"Mengambil Data","Mohon Tunggu...",false,false);
+                loading = ProgressDialog.show(MainActivity.this, "Mengambil Data", "Mohon Tunggu...", false, false);
             }
 
             @Override
@@ -200,7 +199,6 @@ public class MainActivity extends AppCompatActivity
         GetJSON gj = new GetJSON();
         gj.execute();
     }
-
 
 
     @Override
@@ -258,7 +256,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.uploadproduk) {
             Intent ke_upload_produk = new Intent(MainActivity.this, UploadProdukClass.class);
             startActivity(ke_upload_produk);
-        }else if (id == R.id.tentang) {
+        } else if (id == R.id.tentang) {
             Intent ke_tentang = new Intent(MainActivity.this, Tentang.class);
             startActivity(ke_tentang);
         }

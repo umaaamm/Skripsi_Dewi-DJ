@@ -27,8 +27,8 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.splash_screen_acivity);
 
         transContainer = (ViewGroup) findViewById(R.id.transContainer);
-        tvJudul = (TextView)transContainer.findViewById(R.id.tvJudul);
-        tvDesk = (TextView)transContainer.findViewById(R.id.tvDesk);
+        tvJudul = (TextView) transContainer.findViewById(R.id.tvJudul);
+        tvDesk = (TextView) transContainer.findViewById(R.id.tvDesk);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -39,7 +39,7 @@ public class SplashScreen extends AppCompatActivity {
                 tvJudul.setVisibility(visibleJudul ? View.VISIBLE : View.GONE);
                 tvDesk.setVisibility(visibleDesk ? View.VISIBLE : View.GONE);
             }
-        },1000);
+        }, 1000);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -47,7 +47,7 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
             }
-        },2000);
+        }, 2000);
 
     }
 }
