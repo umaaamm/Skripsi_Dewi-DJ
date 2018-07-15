@@ -6,47 +6,11 @@
     android:id="@+id/svKatalog"
     tools:context="com.example.umaaamm.dewi_jilbab.MainActivity">
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/pb"
-        android:indeterminate="true"
-        android:indeterminateTintMode="src_atop"
-        android:indeterminateTint="@color/colorPB"
-        android:layout_centerHorizontal="true"
-        style="?android:progressBarStyleLarge"/>
-
-    <LinearLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_main_barang"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:id="@+id/ll_not_found"
-        android:visibility="gone">
+        android:scrollbars="vertical" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_info_not_found"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:text="Maaf, produk tidak ditemukan." />
-    </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/recyclerView"
-        android:layout_marginTop="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
-
-    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
