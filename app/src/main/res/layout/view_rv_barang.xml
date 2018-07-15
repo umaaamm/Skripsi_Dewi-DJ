@@ -15,7 +15,7 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="320dp"
+        android:layout_height="290dp"
         android:background="#fff">
 
         <ImageView
@@ -58,9 +58,9 @@
             android:textSize="15sp"
             android:textColor="@color/colorSc2"
             android:text="JSon Image Name"
-            android:id="@+id/deskripsi"
+            android:id="@+id/tvharga"
             android:maxLines="3"
-            android:layout_above="@+id/harga"
+            android:layout_above="@+id/stok"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"/>
         <TextView
@@ -69,21 +69,11 @@
             android:textSize="15sp"
             android:textColor="@color/colorSc2"
             android:text="JSon Image Name"
-            android:id="@+id/harga"
-            android:layout_above="@+id/stok"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textColor="@color/colorPrimary"
-            android:text="JSon Image Name"
             android:id="@+id/stok"
             android:layout_above="@+id/llToko"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginRight="5dp"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,29 +88,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:layout_marginBottom="2dp">
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@drawable/ic_home"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginEnd="2dp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="@color/colorSc2"
-                    android:text="JSon Image Name"
-                    android:id="@+id/al"
-                    android:maxLines="1"
-                    android:ellipsize="end"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="2dp">
+                android:layout_marginBottom="2dp"
+                android:layout_marginTop="10dp">
                 <ImageView
                     android:id="@+id/lokasi"
                     android:layout_width="15dp"
@@ -128,6 +97,7 @@
                     android:src="@drawable/ic_search"
                     android:layout_marginStart="2dp"
                     android:layout_marginEnd="2dp"
+
                     />
                 <TextView
                     android:layout_width="wrap_content"

@@ -34,6 +34,10 @@
                 android:icon="@drawable/ic_profile"
                 android:title="Profil" />
             <item
+                android:id="@+id/tentang"
+                android:icon="@drawable/ic_profile"
+                android:title="Tentang Aplikasi" />
+            <item
                 android:id="@+id/keluar"
                 android:icon="@drawable/ic_keluar"
                 android:title="Keluar" />

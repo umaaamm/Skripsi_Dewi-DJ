@@ -25,14 +25,18 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
     private ArrayList<String> stok_barang;
     private ArrayList<String> nama_barang;
     private ArrayList<String> gambar_barang;
+    private ArrayList<String> harga_barang;
 
-    public RecyclerViewAdapterBarang(ArrayList<String> idbrg,ArrayList<String> stok, ArrayList<String> nama,ArrayList<String> gambar) {
+    public RecyclerViewAdapterBarang(ArrayList<String> idbrg,ArrayList<String> stok, ArrayList<String> nama,ArrayList<String> gambar,ArrayList<String> harga) {
         id_barang = idbrg;
         stok_barang = stok;
         nama_barang = nama;
         gambar_barang = gambar;
+        harga_barang = harga;
 
     }
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         // di tutorial ini kita hanya menggunakan data String untuk tiap item
@@ -47,6 +51,7 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
             tvSubtitle = (TextView) v.findViewById(R.id.stok);
             cvMain = (CardView) v.findViewById(R.id.cv_main);
             img = (ImageView) v.findViewById(R.id.icon);
+            harga = (TextView) v.findViewById(R.id.tvharga);
 
         }
     }
@@ -67,8 +72,9 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
         final String name = nama_barang.get(position);
         final String id = id_barang.get(position);
         holder.title.setText(nama_barang.get(position));
-        holder.tvSubtitle.setText("Stok : "+stok_barang.get(position));
+        holder.tvSubtitle.setText(stok_barang.get(position)+" Barang");
         holder.img.setImageBitmap(StringToBitMap(gambar_barang.get(position)));
+        holder.harga.setText("Rp. "+getMoney(harga_barang.get(position)));
         // Set onclicklistener pada view cvMain (CardView)
         holder.cvMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +93,16 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
     public int getItemCount() {
         // menghitung ukuran dataset / jumlah data yang ditampilkan di RecyclerView
         return nama_barang.size();
+    }
+
+    private String getMoney(String str2){
+        StringBuilder str = new StringBuilder(str2);
+        int idx = str.length()-3;
+        while(idx >0){
+            str.insert(idx,".");
+            idx = idx-3;
+        }
+        return str.toString();
     }
 
     public Bitmap StringToBitMap(String encodedString){

@@ -18,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<String> stokbarang;
     private ArrayList<String> namabarang;
     private ArrayList<String> gambarbarang;
+    private ArrayList<String> hargabarang;
+
 
     private String JSON_STRING;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -47,7 +50,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimary);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity
         stokbarang = new ArrayList<>();
         namabarang = new ArrayList<>();
         gambarbarang = new ArrayList<>();
+        hargabarang = new ArrayList<>();
 
         rvView = (RecyclerView) findViewById(R.id.rv_main_barang);
         rvView.setHasFixedSize(true);
@@ -79,7 +82,6 @@ public class MainActivity extends AppCompatActivity
         getJSON();
 
 
-
         //floating button
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -87,8 +89,9 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-                Intent ke_upload_produk = new Intent(MainActivity.this, UploadProdukClass.class);
-                startActivity(ke_upload_produk);
+//                Intent ke_upload_produk = new Intent(MainActivity.this, UploadProdukClass.class);
+//                startActivity(ke_upload_produk);
+                rvView.smoothScrollToPosition(0);
             }
         });
 
@@ -118,6 +121,9 @@ public class MainActivity extends AppCompatActivity
         if(!gambarbarang.isEmpty()){
             gambarbarang.clear();
         }
+        if(!hargabarang.isEmpty()){
+            hargabarang.clear();
+        }
 
         JSONObject jsonObject = null;
 //        ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
@@ -131,12 +137,14 @@ public class MainActivity extends AppCompatActivity
                 String stok = jo.getString(KonfigurasiBarang.TAG_STOK);
                 String nama = jo.getString(KonfigurasiBarang.TAG_NAMA);
                 String gambar = jo.getString(KonfigurasiBarang.TAG_GAMBAR);
+                String harga = jo.getString(KonfigurasiBarang.TAG_HARGA);
 
                 //Toast.makeText(Barang.this,"Get Json : "+nama,Toast.LENGTH_SHORT).show();
                 idbarang.add(id);
                 stokbarang.add(stok);
                 namabarang.add(nama);
                 gambarbarang.add(gambar);
+                hargabarang.add(harga);
 
 //                HashMap<String,String> employees = new HashMap<>();
 //                employees.put(Konfigurasi.TAG_ID,id);
@@ -145,7 +153,7 @@ public class MainActivity extends AppCompatActivity
             }
 
             //Toast.makeText(Barang.this,"Get Json : "+namabarang.size(),Toast.LENGTH_SHORT).show();
-            adapter = new RecyclerViewAdapterBarang(idbarang,stokbarang,namabarang,gambarbarang);
+            adapter = new RecyclerViewAdapterBarang(idbarang,stokbarang,namabarang,gambarbarang,hargabarang);
             rvView.setAdapter(adapter);
 
         } catch (JSONException e) {
@@ -159,6 +167,8 @@ public class MainActivity extends AppCompatActivity
 //
 //        listView.setAdapter(adapter);
     }
+
+
 
     private void getJSON(){
 
@@ -248,6 +258,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.uploadproduk) {
             Intent ke_upload_produk = new Intent(MainActivity.this, UploadProdukClass.class);
             startActivity(ke_upload_produk);
+        }else if (id == R.id.tentang) {
+            Intent ke_tentang = new Intent(MainActivity.this, Tentang.class);
+            startActivity(ke_tentang);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
