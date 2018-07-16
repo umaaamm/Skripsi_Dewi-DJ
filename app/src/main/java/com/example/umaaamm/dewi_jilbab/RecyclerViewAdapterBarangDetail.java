@@ -1,9 +1,5 @@
 package com.example.umaaamm.dewi_jilbab;
 
-/**
- * Created by umaaamm on 15/07/18.
- */
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,14 +16,18 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerViewAdapterBarang.ViewHolder> {
+/**
+ * Created by umaaamm on 16/07/18.
+ */
+
+public class RecyclerViewAdapterBarangDetail extends RecyclerView.Adapter<RecyclerViewAdapterBarangDetail.ViewHolder> {
     private ArrayList<String> id_barang;
     private ArrayList<String> stok_barang;
     private ArrayList<String> nama_barang;
     private ArrayList<String> gambar_barang;
     private ArrayList<String> harga_barang;
 
-    public RecyclerViewAdapterBarang(ArrayList<String> idbrg, ArrayList<String> stok, ArrayList<String> nama, ArrayList<String> gambar, ArrayList<String> harga) {
+    public RecyclerViewAdapterBarangDetail(ArrayList<String> idbrg, ArrayList<String> stok, ArrayList<String> nama, ArrayList<String> gambar, ArrayList<String> harga) {
         id_barang = idbrg;
         stok_barang = stok;
         nama_barang = nama;
@@ -57,22 +57,22 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
     }
 
     @Override
-    public RecyclerViewAdapterBarang.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerViewAdapterBarangDetail.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // membuat view baru
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_rv_barang, parent, false);
         // mengeset ukuran view, margin, padding, dan parameter layout lainnya
-        RecyclerViewAdapterBarang.ViewHolder vh = new RecyclerViewAdapterBarang.ViewHolder(v);
+        RecyclerViewAdapterBarangDetail.ViewHolder vh = new RecyclerViewAdapterBarangDetail.ViewHolder(v);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerViewAdapterBarangDetail.ViewHolder holder, int position) {
         // - mengambil elemen dari dataset (ArrayList) pada posisi tertentu
         // - mengeset isi view dengan elemen dari dataset tersebut
         final String name = nama_barang.get(position);
         final String id = id_barang.get(position);
         holder.title.setText(nama_barang.get(position));
-        holder.tvSubtitle.setText(stok_barang.get(position) + " Tersisa");
+        holder.tvSubtitle.setText(stok_barang.get(position) + " Barang");
         holder.img.setImageBitmap(StringToBitMap(gambar_barang.get(position)));
         holder.harga.setText("Rp. " + getMoney(harga_barang.get(position)));
         // Set onclicklistener pada view cvMain (CardView)
@@ -80,7 +80,7 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Clicked element " + name, Snackbar.LENGTH_LONG).show();
-                Intent intent = new Intent(view.getContext(), ProdukDetail.class);
+                Intent intent = new Intent(view.getContext(), Detailproduk.class);
                 intent.putExtra("id_barang", id);
                 view.getContext().startActivity(intent);
                 ((Activity) view.getContext()).finish();

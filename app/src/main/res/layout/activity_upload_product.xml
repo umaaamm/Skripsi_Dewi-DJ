@@ -41,7 +41,7 @@ android:background="@color/colorAbu">
             android:paddingBottom="5dp"/>
 
         <EditText
-            android:id="@+id/etJudulPromo"
+            android:id="@+id/nama_barang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -78,7 +78,7 @@ android:background="@color/colorAbu">
             android:layout_width="match_parent"
             android:layout_height="100dp">
             <EditText
-                android:id="@+id/deskripsiPromo"
+                android:id="@+id/deskripsiBarang"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:textSize="15sp"
@@ -123,8 +123,7 @@ android:background="@color/colorAbu">
             android:layout_marginEnd="15dp"
             android:layout_marginStart="15dp"
             android:layout_marginBottom="10dp"
-            android:id="@+id/sp_kategori"
-            android:entries="@array/kategori"
+            android:id="@+id/KategoriBarang"
             android:pointerIcon="arrow"
             android:spinnerMode="dialog"
             android:layout_width="match_parent"
@@ -149,48 +148,6 @@ android:background="@color/colorAbu">
                 android:paddingTop="15dp"
                 android:paddingStart="15dp"
                 android:paddingBottom="5dp"/>
-
-            <!--<LinearLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="horizontal"-->
-                <!--android:background="#fff">-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight="7">-->
-                    <!--<TextView-->
-                        <!--android:layout_width="fill_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Rp."-->
-                        <!--android:textColor="@color/colorPrimary"-->
-                        <!--android:textSize="16sp"-->
-                        <!--android:paddingTop="5dp"-->
-                        <!--android:paddingStart="20dp"/>-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_weight="1">-->
-                    <!--<EditText-->
-                        <!--android:id="@+id/etHargaLama"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:textSize="15sp"-->
-                        <!--android:background="@drawable/garis"-->
-                        <!--android:paddingBottom="6dp"-->
-                        <!--android:paddingStart="4dp"-->
-                        <!--android:lines="1"-->
-                        <!--android:hint="0"-->
-                        <!--android:inputType="number"-->
-                        <!--android:paddingTop="6dp"-->
-                        <!--android:layout_marginStart="5dp"-->
-                        <!--android:layout_marginEnd="15dp"/>-->
-                <!--</LinearLayout>-->
-
-            <!--</LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -217,7 +174,7 @@ android:background="@color/colorAbu">
                     android:layout_height="wrap_content"
                     android:layout_weight="1">
                     <EditText
-                        android:id="@+id/etHargaBaru"
+                        android:id="@+id/hargaBarang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
@@ -233,6 +190,40 @@ android:background="@color/colorAbu">
                         android:layout_marginBottom="15dp"/>
                 </LinearLayout>
 
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#fff">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Stok"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:paddingTop="15dp"
+                    android:paddingStart="15dp"
+                    android:paddingBottom="10dp"/>
+
+                <EditText
+                    android:id="@+id/stok_barang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:background="@drawable/garis"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="6dp"
+                    android:paddingStart="4dp"
+                    android:lines="1"
+                    android:inputType="number"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -427,6 +418,94 @@ android:background="@color/colorAbu">
 
     </LinearLayout>
 
+    <!--<LinearLayout-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:background="#fff">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Upload Gambar"-->
+            <!--android:textColor="@color/colorPrimary"-->
+            <!--android:textSize="16sp"-->
+            <!--android:paddingTop="15dp"-->
+            <!--android:paddingStart="15dp"-->
+            <!--android:paddingBottom="15dp"/>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_marginStart="15dp"-->
+            <!--android:layout_marginBottom="15dp">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="2dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Gambar Utama"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:textColor="#a4a4a4"/>-->
+
+                <!--<android.support.v7.widget.CardView-->
+                    <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="100dp"-->
+                    <!--card_view:cardCornerRadius="3dp"-->
+                    <!--card_view:cardElevation="3dp"-->
+                    <!--card_view:cardBackgroundColor="#fff"-->
+                    <!--android:clickable="true"-->
+                    <!--android:foreground="?android:attr/selectableItemBackground"-->
+                    <!--card_view:cardUseCompatPadding="true"-->
+                    <!--android:onClick="uploadGambar">-->
+
+                    <!--<RelativeLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:layout_gravity="center">-->
+
+                        <!--<ImageView-->
+                            <!--android:padding="5dp"-->
+                            <!--android:id="@+id/gambarPromo"-->
+                            <!--android:background="#fff"-->
+                            <!--android:layout_width="100dp"-->
+                            <!--android:layout_height="100dp"-->
+                            <!--android:src="@drawable/ic_add_img"-->
+                            <!--android:scaleType="center"-->
+                            <!--android:layout_alignParentTop="true"-->
+                            <!--android:layout_alignEnd="@+id/btRemove1"/>-->
+
+                        <!--<ImageButton-->
+                            <!--android:visibility="gone"-->
+                            <!--android:id="@+id/btRemove1"-->
+                            <!--android:onClick="removeImg1v"-->
+                            <!--android:layout_width="20dp"-->
+                            <!--android:layout_height="20dp"-->
+                            <!--android:layout_alignParentTop="true"-->
+                            <!--android:layout_alignParentEnd="true"-->
+                            <!--android:background="@drawable/ic_remove"/>-->
+
+                    <!--</RelativeLayout>-->
+
+                <!--</android.support.v7.widget.CardView>-->
+            <!--</LinearLayout>-->
+
+        <!--</LinearLayout>-->
+
+
+    <!--</LinearLayout>-->
+
     <LinearLayout
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
@@ -435,7 +514,7 @@ android:background="@color/colorAbu">
         android:background="#fff">
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Upload Gambar"
             android:textColor="@color/colorPrimary"
@@ -445,7 +524,7 @@ android:background="@color/colorAbu">
             android:paddingBottom="15dp"/>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginStart="15dp"
@@ -453,23 +532,24 @@ android:background="@color/colorAbu">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:padding="2dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Gambar Utama"
                     android:textAlignment="center"
                     android:textSize="12sp"
-                    android:textColor="#a4a4a4"/>
+                    android:textColor="#a4a4a4"
+                    android:id="@+id/actual_size"/>
 
                 <android.support.v7.widget.CardView
                     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     card_view:cardCornerRadius="3dp"
                     card_view:cardElevation="3dp"
                     card_view:cardBackgroundColor="#fff"
@@ -486,28 +566,22 @@ android:background="@color/colorAbu">
 
                         <ImageView
                             android:padding="5dp"
-                            android:id="@+id/gambarPromo"
+                            android:id="@+id/actual"
                             android:background="#fff"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
                             android:src="@drawable/ic_add_img"
                             android:scaleType="center"
+                            android:onClick="chooseImage"
                             android:layout_alignParentTop="true"
-                            android:layout_alignEnd="@+id/btRemove1"/>
+                            />
 
-                        <ImageButton
-                            android:visibility="gone"
-                            android:id="@+id/btRemove1"
-                            android:onClick="removeImg1v"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_alignParentTop="true"
-                            android:layout_alignParentEnd="true"
-                            android:background="@drawable/ic_remove"/>
 
                     </RelativeLayout>
 
+
                 </android.support.v7.widget.CardView>
+
             </LinearLayout>
 
         </LinearLayout>
@@ -527,10 +601,11 @@ android:background="@color/colorAbu">
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:id="@+id/ButtonUploadImage"
+            android:id="@+id/BtnSimpan"
             android:text="Upload Produk"
             android:textSize="18sp"
             android:textStyle="bold"
+            android:onClick="simpan"
             android:background="@drawable/rounded_button"
             android:textColor="@android:color/white"
             />

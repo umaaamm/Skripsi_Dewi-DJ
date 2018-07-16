@@ -77,6 +77,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />>
         </activity>
+        <activity
+            android:name=".Produk"
+            android:label="Produk"
+            android:theme="@style/MasukDaftar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />>
+        </activity>
+        <activity
+            android:name=".Detailproduk"
+            android:label="Detail Produk"
+            android:theme="@style/MasukDaftar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />>
+        </activity>
     </application>
 
 </manifest>

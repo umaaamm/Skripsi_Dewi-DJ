@@ -18,6 +18,7 @@ public class KonfigurasiBarang {
     public static final String KEY_EMP_ID_KATEGORI = "kategori_id";
     public static final String KEY_EMP_NAMA = "barang_nama";
     public static final String KEY_EMP_GAMBAR = "gambar";
+    public static final String KEY_EMP_GAMBAR_BMP = "gambarbmp";
     public static final String KEY_EMP_HARGA = "harga";
     public static final String KEY_EMP_STOK = "stok";
     public static final String KEY_EMP_DESKRIPSI = "deskripsi";
