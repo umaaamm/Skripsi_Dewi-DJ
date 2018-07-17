@@ -17,9 +17,9 @@
             android:icon="@drawable/ic_cart"
             android:title="Keranjang Belanja" />
         <item
-            android:id="@+id/detail"
+            android:id="@+id/kategori"
             android:icon="@drawable/ic_load_img"
-            android:title="Detail Produk" />
+            android:title="Kategori Produk" />
         <item
             android:id="@+id/uploadproduk"
             android:icon="@drawable/ic_add_img2"

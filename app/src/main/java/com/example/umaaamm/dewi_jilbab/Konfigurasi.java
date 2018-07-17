@@ -20,6 +20,7 @@ public class Konfigurasi {
     public static final String KEY_EMP_GAMBAR = "gambar";
     public static final String KEY_EMP_HARGA = "harga";
     public static final String KEY_EMP_STOK = "stok";
+    public static final String KEY_EMP_NAMAKAT = "nama_kategori";
 
 
     //JSON Tags

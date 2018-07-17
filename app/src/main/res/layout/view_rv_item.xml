@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="4dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/batas3"
+        android:background="#fff"
+        android:elevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="30dip"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_kat" />
+
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:text="Id Kategori"
+            android:textColor="#858585"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_subtitle"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="2dp"
+            android:text="Nama Kategori"
+            android:layout_marginBottom="7dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/cv_main"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+
+        <!--card_view:cardBackgroundColor="@color/background_material_light"-->
+        <!--card_view:cardCornerRadius="3dp"-->
+        <!--card_view:cardElevation="2.5dp">-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:padding="3dp">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/icon"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:layout_marginRight="20dip"-->
+                <!--android:contentDescription="TODO"-->
+                <!--android:src="@drawable/ic_kat" />-->
+            <!---->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_subtitle"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_toRightOf="@id/icon"-->
+                <!--android:ellipsize="marquee"-->
+                <!--android:singleLine="true"-->
+                <!--android:text="Description"-->
+                <!--android:textColor="@color/secondary_text_default_material_light"-->
+                <!--android:textSize="12sp" />-->
+
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_title"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_above="@id/tv_subtitle"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_alignParentTop="true"-->
+                <!--android:layout_alignWithParentIfMissing="true"-->
+                <!--android:layout_toRightOf="@id/icon"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:text="Example application"-->
+                <!--android:textColor="@color/primary_text_default_material_light"-->
+                <!--android:textSize="12sp" />-->
+        <!--</RelativeLayout>-->
+
+    <!--</android.support.v7.widget.CardView>-->
+</RelativeLayout>

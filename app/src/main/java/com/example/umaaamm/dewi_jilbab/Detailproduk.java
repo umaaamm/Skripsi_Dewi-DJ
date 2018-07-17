@@ -37,13 +37,13 @@ import java.util.HashMap;
 
 public class Detailproduk extends AppCompatActivity {
 
-    String id_barang_ambil,id_kategori_now,nama_now,deskripsi_now,stok_now,harga_now,gambar_now,gambarbmp_now;
+    String id_barang_ambil, id_kategori_now, nama_now, deskripsi_now, stok_now, harga_now, gambar_now, gambarbmp_now;
 
     Spinner dynamicSpinner;
     ImageView gambar;
     private static final int PICK_IMAGE_REQUEST = 234;
 
-    EditText txtnama,txtdeskrip,txtharga,txt_stok;
+    EditText txtnama, txtdeskrip, txtharga, txt_stok;
     Spinner txtKategori;
 
     String SIDKategori;
@@ -89,22 +89,23 @@ public class Detailproduk extends AppCompatActivity {
 
     }
 
-    public Bitmap StringToBitMap(String encodedString){
-        try{
-            byte [] encodeByte= Base64.decode(encodedString,Base64.DEFAULT);
-            Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+    public Bitmap StringToBitMap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
             return bitmap;
-        }catch(Exception e){
+        } catch (Exception e) {
             e.getMessage();
             return null;
         }
     }
-    public String getStringImage(Bitmap bitmap){
-        ByteArrayOutputStream baos =  new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,20,baos);
+
+    public String getStringImage(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos);
         byte[] imagebyte = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(imagebyte,Base64.DEFAULT);
-        return  encodedImage;
+        String encodedImage = Base64.encodeToString(imagebyte, Base64.DEFAULT);
+        return encodedImage;
     }
 
     public void uploadGambar(View view) {
@@ -134,10 +135,11 @@ public class Detailproduk extends AppCompatActivity {
             Toast.makeText(Detailproduk.this, e.toString(), Toast.LENGTH_LONG).show();
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getApplicationContext(),Produk.class));
+            startActivity(new Intent(getApplicationContext(), Produk.class));
             finish();
         }
         return super.onOptionsItemSelected(item);
@@ -145,17 +147,18 @@ public class Detailproduk extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(getApplicationContext(),Produk.class));
+        startActivity(new Intent(getApplicationContext(), Produk.class));
         finish();
     }
 
-    private void getEmployee(){
-        class GetEmployee extends AsyncTask<Void,Void,String> {
+    private void getEmployee() {
+        class GetEmployee extends AsyncTask<Void, Void, String> {
             ProgressDialog loading;
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(Detailproduk.this,"Fetching...","Wait...",false,false);
+                loading = ProgressDialog.show(Detailproduk.this, "Fetching...", "Wait...", false, false);
             }
 
             @Override
@@ -169,7 +172,7 @@ public class Detailproduk extends AppCompatActivity {
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequestParam(KonfigurasiBarang.URL_GET_EMP,id_barang_ambil);
+                String s = rh.sendGetRequestParam(KonfigurasiBarang.URL_GET_EMP, id_barang_ambil);
                 return s;
             }
         }
@@ -177,7 +180,7 @@ public class Detailproduk extends AppCompatActivity {
         ge.execute();
     }
 
-    private void showEmployee(String json){
+    private void showEmployee(String json) {
         try {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray result = jsonObject.getJSONArray(KonfigurasiBarang.TAG_JSON_ARRAY);
@@ -187,9 +190,9 @@ public class Detailproduk extends AppCompatActivity {
             nama_now = c.getString(KonfigurasiBarang.TAG_NAMA);
             deskripsi_now = c.getString(KonfigurasiBarang.TAG_DESKRIPSI);
             harga_now = c.getString(KonfigurasiBarang.TAG_HARGA);
-            stok_now =  c.getString(KonfigurasiBarang.TAG_STOK);
-            gambar_now =  c.getString(KonfigurasiBarang.TAG_GAMBAR);
-            gambarbmp_now =  c.getString(KonfigurasiBarang.TAG_GAMBAR_BMP);
+            stok_now = c.getString(KonfigurasiBarang.TAG_STOK);
+            gambar_now = c.getString(KonfigurasiBarang.TAG_GAMBAR);
+            gambarbmp_now = c.getString(KonfigurasiBarang.TAG_GAMBAR_BMP);
 
 
             txtnama.setText(nama_now);
@@ -197,8 +200,8 @@ public class Detailproduk extends AppCompatActivity {
             txtharga.setText(harga_now);
             txt_stok.setText(stok_now);
 
-            for(int a = 0; a < idKat.size(); a++){
-                if(idKat.get(a).equals(id_kategori_now)){
+            for (int a = 0; a < idKat.size(); a++) {
+                if (idKat.get(a).equals(id_kategori_now)) {
                     txtKategori.setSelection(a);
                 }
             }
@@ -208,15 +211,15 @@ public class Detailproduk extends AppCompatActivity {
 
         } catch (JSONException e) {
             e.printStackTrace();
-            Toast.makeText(Detailproduk.this,"Isi Error : "+e.toString(),Toast.LENGTH_LONG).show();
+            Toast.makeText(Detailproduk.this, "Isi Error : " + e.toString(), Toast.LENGTH_LONG).show();
         }
     }
 
-    private void kategori(){
-        if(!idKat.isEmpty()){
+    private void kategori() {
+        if (!idKat.isEmpty()) {
             idKat.clear();
         }
-        if(!namaKat.isEmpty()){
+        if (!namaKat.isEmpty()) {
             namaKat.clear();
         }
         JSONObject jsonObject = null;
@@ -225,7 +228,7 @@ public class Detailproduk extends AppCompatActivity {
             jsonObject = new JSONObject(JSON_STRING);
             JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
 
-            for(int i = 0; i<result.length(); i++){
+            for (int i = 0; i < result.length(); i++) {
                 JSONObject jo = result.getJSONObject(i);
                 String id = jo.getString(Konfigurasi.TAG_ID);
                 String nama_kategor = jo.getString(Konfigurasi.TAG_NAMA);
@@ -241,7 +244,6 @@ public class Detailproduk extends AppCompatActivity {
             txtKategori.setAdapter(adapter);
 
 
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -254,14 +256,15 @@ public class Detailproduk extends AppCompatActivity {
 //        listView.setAdapter(adapter);
     }
 
-    private void getKategori(){
-        class GetJSON extends AsyncTask<Void,Void,String> {
+    private void getKategori() {
+        class GetJSON extends AsyncTask<Void, Void, String> {
 
             ProgressDialog loading;
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(Detailproduk.this,"Mengambil Data","Mohon Tunggu...",false,false);
+                loading = ProgressDialog.show(Detailproduk.this, "Mengambil Data", "Mohon Tunggu...", false, false);
             }
 
             @Override
@@ -283,8 +286,8 @@ public class Detailproduk extends AppCompatActivity {
         gj.execute();
     }
 
-    private void deleteEmployee(){
-        class DeleteEmployee extends AsyncTask<Void,Void,String> {
+    private void deleteEmployee() {
+        class DeleteEmployee extends AsyncTask<Void, Void, String> {
             ProgressDialog loading;
 
             @Override
@@ -302,12 +305,12 @@ public class Detailproduk extends AppCompatActivity {
 
             @Override
             protected String doInBackground(Void... params) {
-                HashMap<String,String> hashMap = new HashMap<>();
-                hashMap.put(KonfigurasiBarang.KEY_EMP_ID_BARANG,id_barang_ambil);
-                hashMap.put(KonfigurasiBarang.KEY_EMP_GAMBAR,gambar_now);
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put(KonfigurasiBarang.KEY_EMP_ID_BARANG, id_barang_ambil);
+                hashMap.put(KonfigurasiBarang.KEY_EMP_GAMBAR, gambar_now);
                 RequestHandler rh = new RequestHandler();
 
-                String s = rh.sendPostRequest(KonfigurasiBarang.URL_DELETE_EMP,hashMap);
+                String s = rh.sendPostRequest(KonfigurasiBarang.URL_DELETE_EMP, hashMap);
 
                 return s;
             }
@@ -317,7 +320,7 @@ public class Detailproduk extends AppCompatActivity {
         de.execute();
     }
 
-    private void confirmDeleteEmployee(){
+    private void confirmDeleteEmployee() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Apakah Kamu Yakin Ingin Menghapus Barang Ini?");
 
@@ -326,7 +329,7 @@ public class Detailproduk extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         deleteEmployee();
-                        startActivity(new Intent(Detailproduk.this,Produk.class));
+                        startActivity(new Intent(Detailproduk.this, Produk.class));
                         finish();
                     }
                 });
@@ -343,45 +346,46 @@ public class Detailproduk extends AppCompatActivity {
         alertDialog.show();
     }
 
-    private void updateEmployee(){
+    private void updateEmployee() {
         final String namaBarang = txtnama.getText().toString().trim();
         final String deskripsiBarang = txtdeskrip.getText().toString().trim();
         final String idKategori = SIDKategori;
         final String harga = txtharga.getText().toString().trim();
         final String stok = txt_stok.getText().toString().trim();
 
-        class UpdateEmployee extends AsyncTask<Void,Void,String>{
+        class UpdateEmployee extends AsyncTask<Void, Void, String> {
             ProgressDialog loading;
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(Detailproduk.this,"Updating...","Wait...",false,false);
+                loading = ProgressDialog.show(Detailproduk.this, "Updating...", "Wait...", false, false);
             }
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(Detailproduk.this,s,Toast.LENGTH_LONG).show();
-                startActivity(new Intent(Detailproduk.this,Produk.class));
+                Toast.makeText(Detailproduk.this, s, Toast.LENGTH_LONG).show();
+                startActivity(new Intent(Detailproduk.this, Produk.class));
                 finish();
             }
 
             @Override
             protected String doInBackground(Void... params) {
-                HashMap<String,String> hashMap = new HashMap<>();
-                hashMap.put(KonfigurasiBarang.KEY_EMP_ID_BARANG,id_barang_ambil);
-                hashMap.put(KonfigurasiBarang.KEY_EMP_NAMA,namaBarang);
-                hashMap.put(KonfigurasiBarang.KEY_EMP_ID_KATEGORI,idKategori);
-                hashMap.put(KonfigurasiBarang.KEY_EMP_HARGA,harga);
-                hashMap.put(KonfigurasiBarang.KEY_EMP_STOK,stok);
-                hashMap.put(KonfigurasiBarang.KEY_EMP_DESKRIPSI,deskripsiBarang);
-                hashMap.put(KonfigurasiBarang.KEY_EMP_GAMBAR,gambar_now);
-                hashMap.put(KonfigurasiBarang.KEY_EMP_GAMBAR_BMP,getStringImage(bitmap));
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put(KonfigurasiBarang.KEY_EMP_ID_BARANG, id_barang_ambil);
+                hashMap.put(KonfigurasiBarang.KEY_EMP_NAMA, namaBarang);
+                hashMap.put(KonfigurasiBarang.KEY_EMP_ID_KATEGORI, idKategori);
+                hashMap.put(KonfigurasiBarang.KEY_EMP_HARGA, harga);
+                hashMap.put(KonfigurasiBarang.KEY_EMP_STOK, stok);
+                hashMap.put(KonfigurasiBarang.KEY_EMP_DESKRIPSI, deskripsiBarang);
+                hashMap.put(KonfigurasiBarang.KEY_EMP_GAMBAR, gambar_now);
+                hashMap.put(KonfigurasiBarang.KEY_EMP_GAMBAR_BMP, getStringImage(bitmap));
 
                 RequestHandler rh = new RequestHandler();
 
-                String s = rh.sendPostRequest(KonfigurasiBarang.URL_UPDATE_EMP,hashMap);
+                String s = rh.sendPostRequest(KonfigurasiBarang.URL_UPDATE_EMP, hashMap);
 
                 return s;
             }

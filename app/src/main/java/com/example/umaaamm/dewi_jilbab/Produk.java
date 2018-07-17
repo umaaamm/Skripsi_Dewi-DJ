@@ -4,7 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,13 +34,29 @@ public class Produk extends AppCompatActivity {
     private ArrayList<String> gambarbarang;
     private ArrayList<String> hargabarang;
     private String JSON_STRING;
-
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acivity_produk);
 
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        swipeRefreshLayout.setColorSchemeResources(R.color.pDarkGreen, R.color.colorAccent, R.color.colorPB, R.color.pFullLightGreen);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                        startActivity(getIntent());
+                        swipeRefreshLayout.setRefreshing(false);
+
+                    }
+                }, 2000);
+            }
+        });
 
         idbarang = new ArrayList<>();
         stokbarang = new ArrayList<>();

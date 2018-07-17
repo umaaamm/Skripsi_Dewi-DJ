@@ -250,8 +250,8 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.keluar) {
 
-        } else if (id == R.id.detail) {
-            Intent ke_produk = new Intent(MainActivity.this, ProdukDetail.class);
+        } else if (id == R.id.kategori) {
+            Intent ke_produk = new Intent(MainActivity.this, Kategori.class);
             startActivity(ke_produk);
         } else if (id == R.id.uploadproduk) {
             Intent ke_upload_produk = new Intent(MainActivity.this, Produk.class);

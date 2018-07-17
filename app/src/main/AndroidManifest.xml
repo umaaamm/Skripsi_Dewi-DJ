@@ -33,7 +33,7 @@
             android:theme="@style/MasukDaftar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />>
+                android:value=".Produk" />>
         </activity>
 
         <activity
@@ -92,6 +92,22 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />>
+        </activity>
+        <activity
+            android:name=".Kategori"
+            android:label="Kategori Produk"
+            android:theme="@style/MasukDaftar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />>
+        </activity>
+        <activity
+            android:name=".DetailKategori"
+            android:label="Detail Kategori"
+            android:theme="@style/MasukDaftar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Kategori" />>
         </activity>
     </application>
 
