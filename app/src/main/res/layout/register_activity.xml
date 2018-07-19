@@ -197,7 +197,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp">
-                    <EditText android:id="@+id/input_namaSales"
+                    <EditText android:id="@+id/txtnama"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapWords"
@@ -215,7 +215,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp">
-                    <EditText android:id="@+id/input_idSales"
+                    <EditText android:id="@+id/txtemail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapWords"
@@ -233,7 +233,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp">
-                    <EditText android:id="@+id/input_namaPerusahaan"
+                    <EditText android:id="@+id/txt_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapWords"
@@ -268,7 +268,7 @@
                             android:textSize="16sp"
                             android:background="@drawable/rounded_button"
                             android:textColor="#fff"
-                            android:onClick="berikutnyaDaftar"/>
+                            android:onClick="Daftar"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

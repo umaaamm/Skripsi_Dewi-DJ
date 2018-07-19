@@ -265,6 +265,8 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.register) {
             Intent keregister = new Intent(MainActivity.this, Register.class);
             startActivity(keregister);
+        }else if (id==R.id.action_settings){
+            Toast.makeText(MainActivity.this,"ini setting",Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

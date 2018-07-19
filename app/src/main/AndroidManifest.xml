@@ -109,6 +109,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Kategori" />>
         </activity>
+        <activity
+            android:name=".Keranjang"
+            android:label="Keranjang Pesanan"
+            android:theme="@style/MasukDaftar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Kategori" />>
+        </activity>
     </application>
 
 </manifest>

@@ -206,7 +206,7 @@ public class UploadProdukClass extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getApplicationContext(), Produk.class));
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
         return super.onOptionsItemSelected(item);
