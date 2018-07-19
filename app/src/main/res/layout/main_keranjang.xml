@@ -34,28 +34,27 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="450dp">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:layout_weight="1"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp">
+            android:layout_weight="1">
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/btNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Pesan Barang"
+                android:text="Pesan Sekarang"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:background="@drawable/rounded_button"
                 android:textColor="#ffff"
-                android:onClick="Bayar"/>
+                android:onClick="Bayar"
+                android:layout_gravity="bottom|center"/>
+
         </LinearLayout>
     </LinearLayout>
 

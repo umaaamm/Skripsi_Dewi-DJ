@@ -249,6 +249,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.profile) {
 
         } else if (id == R.id.keluar) {
+            Intent kekeranjang = new Intent(MainActivity.this, Keranjang.class);
+            startActivity(kekeranjang);
 
         } else if (id == R.id.kategori) {
             Intent ke_produk = new Intent(MainActivity.this, Kategori.class);
