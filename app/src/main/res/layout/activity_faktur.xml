@@ -16,27 +16,6 @@
             android:layout_height="wrap_content"
             android:background="#fff">
 
-            <RelativeLayout
-                android:id="@+id/gambaratas"
-                android:layout_width="fill_parent"
-                android:layout_height="350dp"
-                android:background="#fff">
-
-                <ImageView
-                    android:id="@+id/imgLoad"
-                    android:layout_width="fill_parent"
-                    android:layout_height="350dp"
-                    android:scaleType="center"
-                    android:src="@drawable/ic_add_img2" />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="fill_parent"
-                    android:layout_height="350dp"
-                    android:scaleType="fitXY" />
-            </RelativeLayout>
-
-
             <TextView
                 android:id="@+id/judul_produk"
                 android:layout_width="match_parent"
@@ -48,11 +27,11 @@
                 android:layout_marginTop="20dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Informasi Produk"
+                android:text="Faktur Belanja"
                 android:textColor="@color/colorHitam"
                 android:textSize="16sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"
+                />
 
             <TextView
                 android:id="@+id/list_Produk"
@@ -111,7 +90,8 @@
                 android:text=""
                 android:textColor="@color/colorHitam"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
 
             <LinearLayout
                 android:id="@+id/garis7"
@@ -124,36 +104,6 @@
                 android:orientation="horizontal" />
 
 
-            <TextView
-                android:id="@+id/list_stok"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/garis7"
-                android:layout_marginEnd="5dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
-                android:text="Stok Produk"
-                android:textColor="#858585"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/stok"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/list_stok"
-                android:layout_marginEnd="5dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
-                android:text=""
-                android:layout_marginBottom="15dp"
-                android:textColor="@color/colorHitam"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-
-
-
-
             <LinearLayout
                 android:id="@+id/llad"
                 android:layout_width="match_parent"
@@ -164,13 +114,11 @@
                 android:orientation="horizontal"
                 android:visibility="gone" />
 
-
-
             <LinearLayout
                 android:id="@+id/batas2"
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
-                android:layout_below="@+id/llad"
+                android:layout_below="@+id/tvHargaProduk"
                 android:background="#ecf1f4"
                 android:orientation="horizontal" />
 
@@ -243,7 +191,7 @@
                         android:layout_marginEnd="5dp"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="12dp"
-                        android:text="Informasi Toko"
+                        android:text="No rekening"
                         android:textColor="@color/colorHitam"
                         android:textSize="15sp"
                         android:textStyle="bold" />
@@ -256,7 +204,7 @@
                         android:layout_marginEnd="5dp"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="5dp"
-                        android:text="Nama Toko"
+                        android:text="No Rekening"
                         android:textColor="#858585"
                         android:textSize="14sp" />
 
@@ -269,7 +217,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="2dp"
                         android:onClick="klikNamaToko"
-                        android:text="JilbabKu.Co"
+                        android:text="12345678"
                         android:textColor="@color/colorPrimary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -291,7 +239,7 @@
                         android:layout_below="@+id/garis3"
                         android:layout_marginEnd="5dp"
                         android:layout_marginStart="15dp"
-                        android:text="Alamat Toko"
+                        android:text="Atas Nama"
                         android:textColor="#858585"
                         android:textSize="14sp" />
 
@@ -304,7 +252,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="2dp"
                         android:maxLines="3"
-                        android:text="Bandar Lampung"
+                        android:text="Dewi"
                         android:textColor="@color/colorHitam"
                         android:textSize="14sp" />
 
@@ -318,64 +266,27 @@
                         android:background="#ecf1f4"
                         android:orientation="horizontal" />
 
-                    <TextView
-                        android:id="@+id/tvKecamatanToko"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/garis4"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginStart="15dp"
-                        android:text="Kecamatan"
-                        android:textColor="#858585"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/tvKecamatanTokoPromo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvKecamatanToko"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="2dp"
-                        android:onClick="klikKecamatan"
-                        android:text="Kedaton"
-                        android:textColor="@color/colorHitam"
-                        android:textSize="14sp"
-                        />
-
-                    <LinearLayout
-                        android:id="@+id/garis5"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
-                        android:layout_below="@+id/tvKecamatanTokoPromo"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginTop="5dp"
-                        android:background="#ecf1f4"
-                        android:orientation="horizontal" />
-
-                    <TextView
-                        android:id="@+id/tvTeleponToko"
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/garis5"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginStart="15dp"
-                        android:text="Nomor Telepon"
-                        android:textColor="#858585"
-                        android:textSize="14sp" />
+                        android:layout_marginTop="1dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_below="@id/garis4">
 
-                    <TextView
-                        android:id="@+id/tvTeleponTokoPromo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tvTeleponToko"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="2dp"
-                        android:text="0899 2255 445"
-                        android:textColor="@color/colorHitam"
-                        android:textSize="14sp" />
+                        <EditText android:id="@+id/edit_text_rating"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:hint="Input Rating Anda"
+                            android:textSize="15sp"
+                            android:textColorHint="#454545"
+                            android:textColor="#454545"
+                            android:textColorHighlight="#454545"
+                            android:textColorLink="#454545"
+                            android:background="@drawable/garis_2"/>
+                    </android.support.design.widget.TextInputLayout>
 
                 </RelativeLayout>
 
@@ -412,7 +323,7 @@
         app:fabSize="normal"
         android:id="@+id/btn_beli"
         app:backgroundTint="@color/colorPrimaryDark"
-        android:src="@drawable/ic_cart_white"/>
+        android:src="@drawable/rating"/>
 
 
 </FrameLayout>

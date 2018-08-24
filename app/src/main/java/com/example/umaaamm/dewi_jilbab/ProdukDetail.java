@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.MenuItem;
@@ -45,13 +46,13 @@ public class ProdukDetail extends AppCompatActivity {
 
     TextView txtnama, txtdeskrip, txtharga, txt_stok;
     Spinner txtKategori;
-
+    String Snama,Sdeskripso,Sharga;
     String SIDKategori;
 
     Bitmap bitmap;
     private Uri filePath;
     private String JSON_STRING;
-
+    FloatingActionButton btn_beli;
     ArrayList<String> idKat = new ArrayList<String>();
     ArrayList<String> namaKat = new ArrayList<String>();
 
@@ -71,6 +72,19 @@ public class ProdukDetail extends AppCompatActivity {
         id_barang_ambil = intent.getStringExtra("id_barang");
 
         //getKategori();
+        btn_beli = findViewById(R.id.btn_beli);
+        btn_beli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(ProdukDetail.this,"Klik",Toast.LENGTH_SHORT).show();
+                //id_barang = id_barang_ambil;
+//                Intent intent = new Intent(ProdukDetail.this, ProdukDetail.class);
+//                intent.putExtra("id_barang", id_barang_ambil);
+//                ProdukDetail.this.startActivity(intent);
+                addEmployee(id_barang_ambil,MainActivity.id_user_s);
+                finish();
+            }
+        });
 
         getEmployee();
 
@@ -140,6 +154,9 @@ public class ProdukDetail extends AppCompatActivity {
             gambar_now = c.getString(KonfigurasiBarang.TAG_GAMBAR);
             gambarbmp_now = c.getString(KonfigurasiBarang.TAG_GAMBAR_BMP);
 
+            Snama =  nama_now;
+            Sdeskripso = deskripsi_now;
+            Sharga = harga_now;
 
             txtnama.setText(nama_now);
             txtdeskrip.setText(deskripsi_now);
@@ -239,6 +256,50 @@ public class ProdukDetail extends AppCompatActivity {
         GetJSON gj = new GetJSON();
         gj.execute();
     }
+    private void addEmployee(final String id_barang, final String id_user){
+
+
+
+        class AddEmployee extends AsyncTask<Void,Void,String> {
+
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(ProdukDetail.this,"Menambahkan...","Tunggu...",false,false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(ProdukDetail.this,s, Toast.LENGTH_LONG).show();
+                Intent Faktur = new Intent(ProdukDetail.this, Faktur.class);
+                Faktur.putExtra("nama_barang",Snama);
+                Faktur.putExtra("deskripsi_barang",Sdeskripso);
+                Faktur.putExtra("harga",Sharga);
+                startActivity(Faktur);
+                finish();
+            }
+
+            @Override
+            protected String doInBackground(Void... v) {
+                HashMap<String,String> params = new HashMap<>();
+                params.put(KonfigurasiTransaksi.KEY_EMP_ID_BARANG,id_barang);
+                params.put(KonfigurasiTransaksi.KEY_EMP_ID_USER,id_user);
+                RequestHandler rh = new RequestHandler();
+                String res = rh.sendPostRequest(KonfigurasiTransaksi.URL_ADD, params);
+                return res;
+            }
+        }
+
+        AddEmployee ae = new AddEmployee();
+        ae.execute();
+
+    }
+
+
 
 
 }

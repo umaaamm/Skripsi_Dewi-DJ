@@ -21,9 +21,10 @@ public class KonfigurasiUser {
 
     //JSON Tags
     public static final String TAG_JSON_ARRAY="result";
-    public static final String TAG_ID = "id_User";
-    public static final String TAG_NAMA = "nama_User";
-    public static final String TAG_UserName = "email";
+    public static final String TAG_ID = "id_user";
+    public static final String TAG_NAMA = "nama_user";
+    //public static final String TAG_UserName = "username";
+    public static final String TAG_Email = "email";
     public static final String TAG_PASSWORD = "password";
 
     //ID karyawan

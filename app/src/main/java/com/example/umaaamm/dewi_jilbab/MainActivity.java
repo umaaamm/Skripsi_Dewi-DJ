@@ -38,12 +38,13 @@ public class MainActivity extends AppCompatActivity
     private ArrayList<String> namabarang;
     private ArrayList<String> gambarbarang;
     private ArrayList<String> hargabarang;
-
+    public static String id_user_s = "kosong";
+    public static final String nama_user_s = "kosong";
 
     private String JSON_STRING;
     SwipeRefreshLayout swipeRefreshLayout;
 
-
+    Sesion sesi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
