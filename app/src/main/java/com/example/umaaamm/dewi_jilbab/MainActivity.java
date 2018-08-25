@@ -241,25 +241,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.beranda) {
-            // Handle the camera action
-        } else if (id == R.id.perkategori) {
-            Intent ke_kategori = new Intent(MainActivity.this, ProdukPerKategori.class);
-            startActivity(ke_kategori);
-        } else if (id == R.id.cart) {
+            Intent ke_beranda = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(ke_beranda);
+        }else if (id == R.id.keluar) {
 
-        } else if (id == R.id.profile) {
 
-        } else if (id == R.id.keluar) {
-            Intent kekeranjang = new Intent(MainActivity.this, Keranjang.class);
-            startActivity(kekeranjang);
-
-        } else if (id == R.id.kategori) {
-            Intent ke_produk = new Intent(MainActivity.this, Kategori.class);
-            startActivity(ke_produk);
-        } else if (id == R.id.uploadproduk) {
-            Intent ke_upload_produk = new Intent(MainActivity.this, Produk.class);
-            startActivity(ke_upload_produk);
-        } else if (id == R.id.tentang) {
+        }else if (id == R.id.tentang) {
             Intent ke_tentang = new Intent(MainActivity.this, Tentang.class);
             startActivity(ke_tentang);
         }else if (id == R.id.login) {

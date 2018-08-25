@@ -73,18 +73,24 @@ public class ProdukDetail extends AppCompatActivity {
 
         //getKategori();
         btn_beli = findViewById(R.id.btn_beli);
-        btn_beli.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(ProdukDetail.this,"Klik",Toast.LENGTH_SHORT).show();
-                //id_barang = id_barang_ambil;
+
+
+            btn_beli.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(ProdukDetail.this,"Klik",Toast.LENGTH_SHORT).show();
+                    //id_barang = id_barang_ambil;
 //                Intent intent = new Intent(ProdukDetail.this, ProdukDetail.class);
 //                intent.putExtra("id_barang", id_barang_ambil);
 //                ProdukDetail.this.startActivity(intent);
-                addEmployee(id_barang_ambil,MainActivity.id_user_s);
-                finish();
-            }
-        });
+                    if (MainActivity.id_user_s != "kosong") {
+                        addEmployee(id_barang_ambil, MainActivity.id_user_s);
+                        finish();
+                    }else{
+                        Toast.makeText(ProdukDetail.this,"Anda Harus Login Terlebih Dahului",Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
 
         getEmployee();
 

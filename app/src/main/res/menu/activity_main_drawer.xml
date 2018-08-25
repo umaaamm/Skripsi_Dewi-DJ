@@ -8,35 +8,28 @@
             android:id="@+id/beranda"
             android:icon="@drawable/ic_home"
             android:title="Beranda" />
-        <item
-            android:id="@+id/perkategori"
-            android:icon="@drawable/perkategori"
-            android:title="Perkategori" />
+        <!--<item-->
+            <!--android:id="@+id/perkategori"-->
+            <!--android:icon="@drawable/perkategori"-->
+            <!--android:title="Perkategori" />-->
         <item
             android:id="@+id/cart"
             android:icon="@drawable/ic_cart"
             android:title="Keranjang Belanja" />
-        <item
-            android:id="@+id/kategori"
-            android:icon="@drawable/ic_load_img"
-            android:title="Kategori Produk" />
-        <item
-            android:id="@+id/uploadproduk"
-            android:icon="@drawable/ic_add_img2"
-            android:title="Upload Produk" />
+        <!--<item-->
+            <!--android:id="@+id/kategori"-->
+            <!--android:icon="@drawable/ic_load_img"-->
+            <!--android:title="Kategori Produk" />-->
+        <!--<item-->
+            <!--android:id="@+id/uploadproduk"-->
+            <!--android:icon="@drawable/ic_add_img2"-->
+            <!--android:title="Upload Produk" />-->
 
     </group>
 
     <item android:title="Data Diri">
         <menu>
-            <item
-                android:id="@+id/profile"
-                android:icon="@drawable/ic_profile"
-                android:title="Profil" />
-            <item
-                android:id="@+id/tentang"
-                android:icon="@drawable/ic_profile"
-                android:title="Tentang Aplikasi" />
+
             <item
                 android:id="@+id/login"
                 android:icon="@drawable/ic_profile"
@@ -45,6 +38,10 @@
                 android:id="@+id/register"
                 android:icon="@drawable/ic_profile"
                 android:title="Buat Akun" />
+            <item
+                android:id="@+id/tentang"
+                android:icon="@drawable/ic_profile"
+                android:title="Tentang Aplikasi" />
             <item
                 android:id="@+id/keluar"
                 android:icon="@drawable/ic_keluar"
