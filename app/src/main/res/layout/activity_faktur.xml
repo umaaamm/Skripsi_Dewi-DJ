@@ -217,7 +217,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="2dp"
                         android:onClick="klikNamaToko"
-                        android:text="12345678"
+                        android:text="129001003062502"
                         android:textColor="@color/colorPrimary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -252,7 +252,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="2dp"
                         android:maxLines="3"
-                        android:text="Dewi"
+                        android:text="Dewi Anggraini"
                         android:textColor="@color/colorHitam"
                         android:textSize="14sp" />
 

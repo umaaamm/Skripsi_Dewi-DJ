@@ -8,14 +8,14 @@
             android:id="@+id/beranda"
             android:icon="@drawable/ic_home"
             android:title="Beranda" />
-        <!--<item-->
-            <!--android:id="@+id/perkategori"-->
-            <!--android:icon="@drawable/perkategori"-->
-            <!--android:title="Perkategori" />-->
         <item
-            android:id="@+id/cart"
-            android:icon="@drawable/ic_cart"
-            android:title="Keranjang Belanja" />
+            android:id="@+id/video"
+            android:icon="@drawable/perkategori"
+            android:title="Video Tutorial" />
+        <!--<item-->
+            <!--android:id="@+id/cart"-->
+            <!--android:icon="@drawable/ic_cart"-->
+            <!--android:title="Keranjang Belanja" />-->
         <!--<item-->
             <!--android:id="@+id/kategori"-->
             <!--android:icon="@drawable/ic_load_img"-->

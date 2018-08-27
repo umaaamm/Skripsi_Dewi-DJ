@@ -257,6 +257,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(keregister);
         }else if (id==R.id.action_settings){
             Toast.makeText(MainActivity.this,"ini setting",Toast.LENGTH_LONG).show();
+        }else if (id == R.id.video) {
+            Intent kevideo = new Intent(MainActivity.this, Video.class);
+            startActivity(kevideo);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
