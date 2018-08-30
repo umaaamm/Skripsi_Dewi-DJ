@@ -269,7 +269,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="2dp"
                         android:onClick="klikNamaToko"
-                        android:text="JilbabKu.Co.Id"
+                        android:text="Hijab dailyku"
                         android:textColor="@color/colorPrimary"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -304,7 +304,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="2dp"
                         android:maxLines="3"
-                        android:text="Bandar Lampung"
+                        android:text="jalan Prof. Dr. Ir. Sumantri bojonegoro, kampung baru kedaton bandar lampung"
                         android:textColor="@color/colorHitam"
                         android:textSize="14sp" />
 
