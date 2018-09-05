@@ -97,6 +97,7 @@ public class Login extends AppCompatActivity {
                     //Toast.makeText(Login.this, "Email : " + txt_username.getText() + " Password : " + txt_password.getText() + " Anda berhasil Login", Toast.LENGTH_SHORT).show();
                     //sesi.setId_user(id);
                     MainActivity.id_user_s = id;
+                    Toast.makeText(Login.this,"Anda Berhasil Login.",Toast.LENGTH_LONG).show();
                     Intent keregister = new Intent(Login.this, MainActivity.class);
                     startActivity(keregister);
                     finish();
