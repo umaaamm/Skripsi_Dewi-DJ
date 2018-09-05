@@ -90,10 +90,11 @@ public class Login extends AppCompatActivity {
                 String nama = jo.getString(KonfigurasiUser.TAG_NAMA);
                 String username = jo.getString(KonfigurasiUser.TAG_Email);
                 String password = jo.getString(KonfigurasiUser.TAG_PASSWORD);
+                String jabatan = jo.getString(KonfigurasiUser.TAG_JABATAN);
                 //Toast.makeText(Login.this,"Get Json : "+nama,Toast.LENGTH_LONG).show();
 
-                if(username.equals(txt_username.getText().toString()) && password.equals(txt_password.getText().toString())) {
-                    Toast.makeText(Login.this, "Email : " + txt_username.getText() + " Password : " + txt_password.getText() + " Anda berhasil Login", Toast.LENGTH_SHORT).show();
+                if(username.equals(txt_username.getText().toString()) && password.equals(txt_password.getText().toString()) && jabatan.equals("user")) {
+                    //Toast.makeText(Login.this, "Email : " + txt_username.getText() + " Password : " + txt_password.getText() + " Anda berhasil Login", Toast.LENGTH_SHORT).show();
                     //sesi.setId_user(id);
                     MainActivity.id_user_s = id;
                     Intent keregister = new Intent(Login.this, MainActivity.class);

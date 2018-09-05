@@ -75,16 +75,7 @@
                         android:background="@drawable/garis_2"/>
                 </android.support.design.widget.TextInputLayout>
 
-                <CheckBox
-                    android:id="@+id/cbShowPwd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="13dp"
-                    android:layout_below="@+id/edit_text_password_activity_main"
-                    android:textSize="16sp"
-                    android:buttonTint="@color/colorPrimary"
-                    android:textColor="@color/colorHitam"
-                    android:text="Tampikan Kata Sandi"  />
+
 
                 <Button
                     android:layout_width="match_parent"

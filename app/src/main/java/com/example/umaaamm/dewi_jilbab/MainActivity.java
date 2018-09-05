@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-
+        //Toast.makeText(MainActivity.this,"sisseion = "+id_user_s,Toast.LENGTH_LONG).show();
         idbarang = new ArrayList<>();
         stokbarang = new ArrayList<>();
         namabarang = new ArrayList<>();
@@ -244,6 +244,10 @@ public class MainActivity extends AppCompatActivity
             Intent ke_beranda = new Intent(MainActivity.this, MainActivity.class);
             startActivity(ke_beranda);
         }else if (id == R.id.keluar) {
+            id_user_s = "kosong";
+            Intent kehome = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(kehome);
+            Toast.makeText(MainActivity.this,"Anda Telah Logout.",Toast.LENGTH_LONG).show();
 
 
         }else if (id == R.id.tentang) {
