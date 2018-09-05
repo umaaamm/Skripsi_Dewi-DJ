@@ -33,6 +33,7 @@ public class KonfigurasiBarang {
     public static final String TAG_GAMBAR_BMP = "gambarbmp";
     public static final String TAG_DESKRIPSI = "deskripsi";
     public static final String TAG_HARGA = "harga";
+    public static final String TAG_RATING = "rating";
 
     //ID
     //emp itu singkatan dari Employee

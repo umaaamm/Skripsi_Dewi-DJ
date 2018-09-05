@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -26,13 +27,15 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
     private ArrayList<String> nama_barang;
     private ArrayList<String> gambar_barang;
     private ArrayList<String> harga_barang;
+    private ArrayList<String> rating_barang;
 
-    public RecyclerViewAdapterBarang(ArrayList<String> idbrg, ArrayList<String> stok, ArrayList<String> nama, ArrayList<String> gambar, ArrayList<String> harga) {
+    public RecyclerViewAdapterBarang(ArrayList<String> idbrg, ArrayList<String> stok, ArrayList<String> nama, ArrayList<String> gambar, ArrayList<String> harga,ArrayList<String> rating) {
         id_barang = idbrg;
         stok_barang = stok;
         nama_barang = nama;
         gambar_barang = gambar;
         harga_barang = harga;
+        rating_barang = rating;
 
     }
 
@@ -44,6 +47,7 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
         public TextView tvSubtitle;
         public CardView cvMain;
         public ImageView img;
+        public RatingBar ratingBar;
 
         public ViewHolder(View v) {
             super(v);
@@ -52,6 +56,7 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
             cvMain = (CardView) v.findViewById(R.id.cv_main);
             img = (ImageView) v.findViewById(R.id.icon);
             harga = (TextView) v.findViewById(R.id.tvharga);
+            ratingBar = (RatingBar) v.findViewById(R.id.rating);
 
         }
     }
@@ -75,6 +80,7 @@ public class RecyclerViewAdapterBarang extends RecyclerView.Adapter<RecyclerView
         holder.tvSubtitle.setText(stok_barang.get(position) + " Tersisa");
         holder.img.setImageBitmap(StringToBitMap(gambar_barang.get(position)));
         holder.harga.setText("Rp. " + getMoney(harga_barang.get(position)));
+        holder.ratingBar.setRating(Float.parseFloat(rating_barang.get(position)));
         // Set onclicklistener pada view cvMain (CardView)
         holder.cvMain.setOnClickListener(new View.OnClickListener() {
             @Override
