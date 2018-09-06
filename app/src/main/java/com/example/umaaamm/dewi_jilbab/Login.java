@@ -33,7 +33,7 @@ public class Login extends AppCompatActivity {
         txt_username = findViewById(R.id.edit_text_username_activity_main);
         txt_password = findViewById(R.id.edit_text_password_activity_main);
         //daftar = findViewById(R.id.button_sign_up_activity_main);
-        Toast.makeText(Login.this,"ID Sesion : "+MainActivity.id_user_s,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(Login.this,"ID Sesion : "+MainActivity.id_user_s,Toast.LENGTH_SHORT).show();
 
         //daftar.setOnClickListener();
 

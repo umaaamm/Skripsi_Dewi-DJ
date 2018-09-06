@@ -151,7 +151,6 @@ public class ProdukDetail extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(json);
             JSONArray result = jsonObject.getJSONArray(KonfigurasiBarang.TAG_JSON_ARRAY);
             JSONObject c = result.getJSONObject(0);
-
             id_kategori_now = c.getString(KonfigurasiBarang.TAG_ID_KATEGORI);
             nama_now = c.getString(KonfigurasiBarang.TAG_NAMA);
             deskripsi_now = c.getString(KonfigurasiBarang.TAG_DESKRIPSI);
@@ -282,6 +281,7 @@ public class ProdukDetail extends AppCompatActivity {
                 loading.dismiss();
                 Toast.makeText(ProdukDetail.this,s, Toast.LENGTH_LONG).show();
                 Intent Faktur = new Intent(ProdukDetail.this, Faktur.class);
+                Faktur.putExtra("id_barang",id_barang_ambil);
                 Faktur.putExtra("nama_barang",Snama);
                 Faktur.putExtra("deskripsi_barang",Sdeskripso);
                 Faktur.putExtra("harga",Sharga);
