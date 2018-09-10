@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +27,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity
 
     private String JSON_STRING;
     SwipeRefreshLayout swipeRefreshLayout;
+    android.widget.SearchView searchView;
 
     Sesion sesi;
     @Override
@@ -69,6 +72,26 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        searchView = (android.widget.SearchView) findViewById(R.id.svCari);
+
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(MainActivity.this,"wkowkwo ini searfh = "+ searchView.getQuery(),Toast.LENGTH_LONG).show();
+                //addEmployee(searchView.getQuery().toString());
+
+
+                if (searchView.getQuery().toString().equals(""))
+                {
+                    getJSON("semua");
+                }else{
+                    getJSON(searchView.getQuery().toString());
+                }
+            }
+        });
+
+
+
         //Toast.makeText(MainActivity.this,"sisseion = "+id_user_s,Toast.LENGTH_LONG).show();
         idbarang = new ArrayList<>();
         stokbarang = new ArrayList<>();
@@ -82,7 +105,7 @@ public class MainActivity extends AppCompatActivity
 
         rvView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
 
-        getJSON();
+        getJSON("semua");
 
 
         //floating button
@@ -108,6 +131,70 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+    }
+    private void showEmployee_cari() {
+
+        if (!stokbarang.isEmpty()) {
+            stokbarang.clear();
+        }
+
+        if (!namabarang.isEmpty()) {
+            namabarang.clear();
+        }
+
+        if (!gambarbarang.isEmpty()) {
+            gambarbarang.clear();
+        }
+        if (!hargabarang.isEmpty()) {
+            hargabarang.clear();
+        }
+        if (!rating.isEmpty()) {
+            rating.clear();
+        }
+
+        JSONObject jsonObject = null;
+//        ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
+        try {
+            jsonObject = new JSONObject(JSON_STRING);
+            JSONArray result = jsonObject.getJSONArray(KonfigurasiBarang.TAG_JSON_ARRAY);
+
+            for (int i = 0; i < result.length(); i++) {
+                JSONObject jo = result.getJSONObject(i);
+                String id = jo.getString(KonfigurasiBarang.TAG_ID_BARANG);
+                String stok = jo.getString(KonfigurasiBarang.TAG_STOK);
+                String nama = jo.getString(KonfigurasiBarang.TAG_NAMA);
+                String gambar = jo.getString(KonfigurasiBarang.TAG_GAMBAR);
+                String harga = jo.getString(KonfigurasiBarang.TAG_HARGA);
+                String rating_temp = jo.getString(KonfigurasiBarang.TAG_RATING);
+
+                //Toast.makeText(Barang.this,"Get Json : "+nama,Toast.LENGTH_SHORT).show();
+                idbarang.add(id);
+                stokbarang.add(stok);
+                namabarang.add(nama);
+                gambarbarang.add(gambar);
+                hargabarang.add(harga);
+                rating.add(rating_temp);
+
+//                HashMap<String,String> employees = new HashMap<>();
+//                employees.put(Konfigurasi.TAG_ID,id);
+//                employees.put(Konfigurasi.TAG_NAMA,nama_kategor);
+//                list.add(employees);
+            }
+
+            //Toast.makeText(Barang.this,"Get Json : "+namabarang.size(),Toast.LENGTH_SHORT).show();
+            adapter = new RecyclerViewAdapterBarang(idbarang, stokbarang, namabarang, gambarbarang, hargabarang,rating);
+            rvView.setAdapter(adapter);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+//        ListAdapter adapter = new SimpleAdapter(
+//                TampilSemuaPgw.this, list, R.layout.list_item,
+//                new String[]{konfigurasi.TAG_ID,konfigurasi.TAG_NAMA},
+//                new int[]{R.id.id, R.id.name});
+//
+//        listView.setAdapter(adapter);
     }
 
     private void showEmployee() {
@@ -176,7 +263,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private void getJSON() {
+    private void getJSON(final String nama_barang_c) {
 
         class GetJSON extends AsyncTask<Void, Void, String> {
 
@@ -200,7 +287,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             protected String doInBackground(Void... params) {
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequest(KonfigurasiBarang.URL_GET_ALL);
+                String s;
+                if(nama_barang_c !="semua"){
+                    s = rh.sendGetRequestParam(KonfigurasiBarang.URL_CARI,nama_barang_c);
+                }else if(nama_barang_c == ""){
+                    String nama_barang_c = "semua";
+                   s  = rh.sendGetRequestParam(KonfigurasiBarang.URL_CARI,nama_barang_c);
+                }else {
+                    s  = rh.sendGetRequestParam(KonfigurasiBarang.URL_CARI,nama_barang_c);
+                }
                 return s;
             }
         }
@@ -276,5 +371,47 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void addEmployee(final String nama_barang){
+
+
+
+        class AddEmployee extends AsyncTask<Void,Void,String> {
+
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(MainActivity.this,"Mencari...","Tunggu...",false,false);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(MainActivity.this,s, Toast.LENGTH_LONG).show();
+                Intent Faktur = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(Faktur);
+                finish();
+            }
+
+            @Override
+            protected String doInBackground(Void... v) {
+                HashMap<String,String> params = new HashMap<>();
+//                params.put(KonfigurasiTransaksi.KEY_EMP_ID_BARANG,id_barang);
+//                params.put(KonfigurasiTransaksi.KEY_EMP_ID_USER,id_user);
+                params.put(KonfigurasiBarang.KEY_CARI,nama_barang);
+                RequestHandler rh = new RequestHandler();
+                //String res = rh.sendPostRequest(KonfigurasiBarang.URL_CARI, params);
+                String res = rh.sendGetRequestParam(KonfigurasiBarang.URL_CARI,nama_barang);
+                return res;
+            }
+        }
+
+        AddEmployee ae = new AddEmployee();
+        ae.execute();
+
     }
 }

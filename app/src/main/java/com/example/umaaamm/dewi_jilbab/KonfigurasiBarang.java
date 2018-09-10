@@ -11,6 +11,7 @@ public class KonfigurasiBarang {
     public static final String URL_GET_EMP = "http://umam-developer.com/API/hijab/tampilHijab.php?Hijab_id=";
     public static final String URL_UPDATE_EMP = "http://umam-developer.com/API/hijab/updateHijab.php";
     public static final String URL_DELETE_EMP = "http://umam-developer.com/API/hijab/hapusHijab.php";
+    public static final String URL_CARI = "http://umam-developer.com/API/hijab/tampil.php?kata=";
 
 
     //Dibawah ini merupakan Kunci yang akan digunakan untuk mengirim permintaan ke Skrip PHP
@@ -22,6 +23,7 @@ public class KonfigurasiBarang {
     public static final String KEY_EMP_HARGA = "harga";
     public static final String KEY_EMP_STOK = "stok";
     public static final String KEY_EMP_DESKRIPSI = "deskripsi";
+    public static final String KEY_CARI = "kata";
 
     //JSON Tags
     public static final String TAG_JSON_ARRAY = "result";
